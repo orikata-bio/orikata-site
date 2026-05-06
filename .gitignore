@@ -1,0 +1,47 @@
+# dependencies
+node_modules/
+.pnp
+.pnp.js
+.yarn/
+
+# next.js
+.next/
+out/
+
+# testing
+coverage/
+
+# misc
+.DS_Store
+Thumbs.db
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# env
+.env
+.env*.local
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# wrangler (cloudflare local dev, if added later)
+.wrangler/
+
+# scratch screenshots and contact sheets (regenerable via npm run sprites
+# or npm run record; commit a specific PNG only when asked)
+dev/screenshots/
+dev/sprite-preview.png
