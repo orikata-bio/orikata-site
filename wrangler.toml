@@ -1,0 +1,21 @@
+# Cloudflare Workers (Static Assets) configuration.
+#
+# Workers Static Assets serves the Next.js static-export `out/` directory
+# from the Cloudflare edge. Unlike Pages, this requires an explicit config
+# file pointing wrangler at the assets directory.
+#
+# Build flow:
+#   1. `npm run build` runs `next build`, which produces `out/` because
+#      next.config.mjs has output: "export".
+#   2. `npx wrangler deploy` reads this file, finds the assets directory,
+#      and uploads everything in `out/` to Cloudflare's edge.
+#
+# Compatibility date pins the Workers runtime behavior; bump it when you
+# want to opt into a newer runtime release. See:
+# https://developers.cloudflare.com/workers/configuration/compatibility-dates/
+
+name = "orikata-site"
+compatibility_date = "2026-05-06"
+
+[assets]
+directory = "./out"
