@@ -81,7 +81,7 @@ export default function Frame() {
       <p className="relative mt-10 font-yuji portrait:text-[clamp(18px,2.6vw,28px)] landscape:text-[20px] tracking-[0.08em] text-wisteria-600 landscape:mt-12">
         <span className="block landscape:inline">Mastering the Art</span>{" "}
         <span className="block landscape:inline">of</span>{" "}
-        <span className="block landscape:inline">Protein Folding</span>
+        <span className="block landscape:inline">Folding Proteins</span>
       </p>
     </main>
   );
