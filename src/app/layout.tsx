@@ -43,11 +43,22 @@ const FAVICON_SAKURA =
 // Inline palette-switch script — runs synchronously in <head> before the
 // body paints, so the brand colors and favicon are correct on first frame
 // (no flash of wisteria → sakura). 50/50 PRNG roll per page load.
+//
+// For the favicon swap we replace the <link> element rather than mutating
+// its `href` in place: Chrome and Safari aggressively cache the rendered
+// favicon and an in-place `setAttribute('href', …)` often doesn't trigger
+// a refetch, leaving the old icon visible while the new one is "set."
+// Removing the node and inserting a fresh one bypasses that cache.
 const PALETTE_SWITCH_SCRIPT = `(function(){
   if (Math.random() < 0.5) {
     document.documentElement.classList.add('palette-sakura');
-    var icon = document.querySelector("link[rel='icon']");
-    if (icon) icon.setAttribute('href', ${JSON.stringify(FAVICON_SAKURA)});
+    var old = document.querySelector("link[rel='icon']");
+    if (old && old.parentNode) old.parentNode.removeChild(old);
+    var icon = document.createElement('link');
+    icon.rel = 'icon';
+    icon.type = 'image/svg+xml';
+    icon.href = ${JSON.stringify(FAVICON_SAKURA)};
+    document.head.appendChild(icon);
   }
 })();`;
 
