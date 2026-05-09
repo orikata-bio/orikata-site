@@ -31,14 +31,25 @@ export const metadata: Metadata = {
   // the link's href when the sakura palette wins the 50/50 roll.
 };
 
-// Inline-SVG favicons — the 折 character, in each colorway. Encoded as
-// data: URIs so they ship with the HTML and don't need a network round-trip.
+// Inline-SVG favicons — the wisteria single-petal silhouette in each
+// colorway. Path is the same SVG translation of WISTERIA_VARIANTS'
+// single-petal Bézier (centered, s=40 in a 100-viewBox so the curves
+// don't touch the edges). Encoded as data: URIs so they ship with the
+// HTML and don't need a network round-trip.
+//
+// Earlier iterations used the kanji 折 directly; that's been retired
+// because it's a linguistic borrow from a culture none of the founders
+// belong to, and the favicon is small but the principle is the same as
+// the on-page kanji removal. The petal is a global flower silhouette
+// that's already on the page (falling-petals canvas), so the favicon
+// references an existing brand asset rather than an unrelated symbol.
+//
 //   wisteria-600: #604694
 //   sakura-600:   #A0395E
 const FAVICON_WISTERIA =
-  "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='78' font-size='84' font-family='serif' fill='%23604694'%3E%E6%8A%98%3C/text%3E%3C/svg%3E";
+  "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M 56 12 C 72 38 67 72 50 88 C 37 72 43 38 56 12 Z' fill='%23604694'/%3E%3C/svg%3E";
 const FAVICON_SAKURA =
-  "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='78' font-size='84' font-family='serif' fill='%23A0395E'%3E%E6%8A%98%3C/text%3E%3C/svg%3E";
+  "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M 56 12 C 72 38 67 72 50 88 C 37 72 43 38 56 12 Z' fill='%23A0395E'/%3E%3C/svg%3E";
 
 // Inline palette-switch script — runs synchronously in <head> before the
 // body paints, so the brand colors and favicon are correct on first frame
