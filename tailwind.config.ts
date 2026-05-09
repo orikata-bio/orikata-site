@@ -35,21 +35,24 @@ const config: Config = {
           950: "#0C0020",
         },
 
-        // ─── Sakura — cherry pink accent (hue ~357°) ─────────────────
-        // General-purpose pink. Petal canvas uses sakura-petal-* tokens
-        // for atmospheric depth, not these scale steps.
+        // ─── Sakura — cherry pink accent (hue ~340°, rose-magenta) ────
+        // General-purpose pink. Hue is rose-shifted vs natural sakura
+        // (~357°) so the deep steps stay pink instead of drifting to
+        // burgundy as lightness drops; chroma is held higher through
+        // 600/700 to keep the saturation reading. Petal canvas uses
+        // sakura-petal-* tokens for atmospheric depth, not these steps.
         sakura: {
-          50:  "#FFEDF7",
-          100: "#FFE2ED",
-          200: "#F2CBD8",
-          300: "#D9ACBB",
-          400: "#B68192",
-          500: "#995F73",
-          600: "#7C4458",
-          700: "#613143",
-          800: "#441C2C",
-          900: "#280916",
-          950: "#150107",
+          50:  "#FFEDF5",
+          100: "#FFDCE9",
+          200: "#FBC1D7",
+          300: "#F09EBB",
+          400: "#DE7397",
+          500: "#C24E78",
+          600: "#A0395E",
+          700: "#7E2848",
+          800: "#591935",
+          900: "#330D1E",
+          950: "#1A0510",
         },
 
         // ─── Rice — warm neutral surfaces (hue ~63°) ─────────────────

@@ -10,4 +10,38 @@
     padding: 0;
     overflow: hidden;
   }
+
+  /*
+   * Brand-color CSS vars. The default (wisteria) values cover everything
+   * the site needs from a single source of truth; the .palette-sakura
+   * mode (set on <html> by an inline script in layout.tsx based on a
+   * 50/50 PRNG roll per page load) reassigns them to the sakura scale.
+   *
+   * Per-class overrides for `text-wisteria-N` Tailwind utilities live
+   * outside the base layer below — they need higher specificity than
+   * Tailwind's generated single-class rules.
+   */
+  :root {
+    --brand-ink: #3d2c5e;        /* dark wisteria — brushstroke base */
+  }
+
+  html.palette-sakura {
+    --brand-ink: #591935;        /* dark sakura — sakura-800 */
+  }
 }
+
+/*
+ * Palette overrides — when <html> carries .palette-sakura, every
+ * `text-wisteria-N` utility resolves to the equivalent rose-pink hex.
+ * Specificity of `html.palette-sakura .text-wisteria-N` (0,2,0) wins
+ * cleanly over Tailwind's bare utility (0,1,0).
+ *
+ * Locked against tailwind.config.ts: the right-hand hexes mirror the
+ * sakura scale steps so both palettes share the same lightness curve.
+ */
+html.palette-sakura .text-wisteria-300 { color: #F09EBB; }
+html.palette-sakura .text-wisteria-400 { color: #DE7397; }
+html.palette-sakura .text-wisteria-500 { color: #C24E78; }
+html.palette-sakura .text-wisteria-600 { color: #A0395E; }
+html.palette-sakura .text-wisteria-700 { color: #7E2848; }
+html.palette-sakura .hover\:text-wisteria-700:hover { color: #7E2848; }

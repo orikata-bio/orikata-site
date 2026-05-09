@@ -249,6 +249,38 @@ export const WISTERIA_VARIANTS: SpriteVariant[] = [
     },
   },
   {
+    // edge-sliver — wisteria-shaped petal viewed from the side, foreshortened
+    // along its short axis. Mirrors the sakura edge-sliver but keeps the
+    // wisteria DNA: the centerline carries the same gentle banana-arc as
+    // single-petal (right-bowed), so the silhouette reads as a wisteria
+    // pea-flower petal seen edge-on rather than a generic sakura sliver.
+    //
+    // Width compressed to ~0.16·s on the convex (right) side, ~0.06·s
+    // concave (left) — the cup face. Tip at -y is offset slightly right
+    // (+0.10·s) so the centerline arc still tells the wisteria-vs-sakura
+    // story even at small sizes after antialiasing. No notch — wisteria
+    // pea-flower petals don't have one, so absence is correct.
+    name: "edge-sliver",
+    draw: (ctx, s) => {
+      ctx.beginPath();
+      ctx.moveTo(0.10 * s, -0.95 * s); // tip, offset right (banana-arc)
+      // outer (right) side — fuller bulge, the convex back of the petal
+      ctx.bezierCurveTo(
+         0.30 * s, -0.40 * s,
+         0.32 * s,  0.40 * s,
+         0,         0.95 * s,
+      );
+      // inner (left) side — shallow concave cup face, returns to tip
+      ctx.bezierCurveTo(
+        -0.06 * s,  0.40 * s,
+        -0.04 * s, -0.40 * s,
+         0.10 * s, -0.95 * s,
+      );
+      ctx.closePath();
+      ctx.fill();
+    },
+  },
+  {
     // Cluster silhouette — a raceme segment, not a single petal. Wisteria's
     // iconic visual is the hanging cluster ("purple curtain hanging"); this
     // variant carries that cultural register so the swarm doesn't read as

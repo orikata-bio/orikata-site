@@ -20,7 +20,9 @@
  */
 import { useEffect, useMemo, useState } from "react";
 
-const INK = "#3d2c5e";
+// Brushstroke base color — driven by --brand-ink in globals.css so the
+// 50/50 palette switch swaps wisteria-ink and sakura-ink at first paint.
+const INK = "var(--brand-ink)";
 
 /**
  * The set of layer counts the brush may pick from — powers of two from
