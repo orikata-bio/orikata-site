@@ -65,19 +65,12 @@ export default function Frame() {
         </span>
       </h1>
 
-      {/* Kanji subtitle */}
-      <p
-        aria-hidden="true"
-        className="relative mt-8 font-yuji portrait:text-[clamp(28px,6vw,60px)] landscape:text-[clamp(28px,3.5vw,44px)] leading-none tracking-[0.35em] text-wisteria-400 landscape:mt-10"
-        style={{ textIndent: "0.35em" }}
-      >
-        折形命
-      </p>
-
       {/* Tagline — single line on landscape, three lines on portrait
           broken at the natural prepositional joints. Portrait uses vw
           scaling so it grows on portrait tablets the same way the
-          wordmark does; landscape keeps a fixed point size. */}
+          wordmark does; landscape keeps a fixed point size. The 折 kanji
+          remains as the favicon (see app/layout.tsx) but no longer
+          appears as a subtitle on the page itself. */}
       <p className="relative mt-10 font-yuji portrait:text-[clamp(18px,2.6vw,28px)] landscape:text-[20px] tracking-[0.08em] text-wisteria-600 landscape:mt-12">
         <span className="block landscape:inline">Mastering the Art</span>{" "}
         <span className="block landscape:inline">of</span>{" "}
