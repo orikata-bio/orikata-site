@@ -71,7 +71,7 @@ export default function Frame() {
           wordmark does; landscape keeps a fixed point size. The 折 kanji
           remains as the favicon (see app/layout.tsx) but no longer
           appears as a subtitle on the page itself. */}
-      <p className="relative mt-10 font-yuji portrait:text-[clamp(18px,2.6vw,28px)] landscape:text-[20px] tracking-[0.08em] text-wisteria-600 landscape:mt-12">
+      <p className="relative mt-10 font-yuji portrait:text-[clamp(24px,4vw,40px)] landscape:text-[28px] tracking-[0.08em] text-wisteria-600 landscape:mt-12">
         <span className="block landscape:inline">Mastering the Art</span>{" "}
         <span className="block landscape:inline">of</span>{" "}
         <span className="block landscape:inline">Folding Proteins</span>
