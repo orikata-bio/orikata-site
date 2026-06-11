@@ -45,3 +45,7 @@ next-env.d.ts
 # or npm run record; commit a specific PNG only when asked)
 dev/screenshots/
 dev/sprite-preview.png
+
+# python bytecode cache (harness scripts)
+__pycache__/
+*.pyc

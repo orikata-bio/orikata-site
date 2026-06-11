@@ -45,3 +45,16 @@ html.palette-sakura .text-wisteria-500 { color: #C24E78; }
 html.palette-sakura .text-wisteria-600 { color: #A0395E; }
 html.palette-sakura .text-wisteria-700 { color: #7E2848; }
 html.palette-sakura .hover\:text-wisteria-700:hover { color: #7E2848; }
+
+/*
+ * border-wisteria-N → sakura under .palette-sakura, so the solid brand
+ * border on the lockup card tracks the random palette like the text does.
+ */
+html.palette-sakura .border-wisteria-300 { border-color: #F09EBB; }
+html.palette-sakura .border-wisteria-400 { border-color: #DE7397; }
+html.palette-sakura .border-wisteria-500 { border-color: #C24E78; }
+
+/* Origami mark — show the palette-matched variant, hide the other. */
+.mark-sakura { display: none; }
+html.palette-sakura .mark-wisteria { display: none; }
+html.palette-sakura .mark-sakura { display: block; }

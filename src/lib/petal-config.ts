@@ -22,8 +22,13 @@ export const CONFIG = {
   petalCountMobile:  28,
   mobileBreakpoint:  720,
 
-  // Mix
-  sakuraRatio: 0.7, // 70% sakura, 30% wisteria
+  // Mix — petals bias toward whichever colorway won this load's palette roll
+  // (.palette-sakura on <html>). The dominant hue takes a random share in
+  // [dominantPetalMin, dominantPetalMax] each load; the remainder is the other
+  // hue — so the sakura:wisteria ratio is bimodal across visits, clustered
+  // toward the logo/text color.
+  dominantPetalMin: 0.65,
+  dominantPetalMax: 0.95,
 
   // Fall behavior (px per frame at 60fps)
   fallSpeedMin: 0.25,

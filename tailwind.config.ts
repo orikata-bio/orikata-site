@@ -107,6 +107,9 @@ const config: Config = {
         // IBM Plex Sans is reserved for legal footer copy only.
         yuji: ['"Yuji Syuku"', "serif"],
         ibm:  ['"IBM Plex Sans"', "system-ui", "sans-serif"],
+        // Brand face — Hiragino Sans (matches the deck's font-display) where available
+        // (Apple), with Zen Kaku Gothic New as the web-served fallback on other platforms.
+        brand: ['"Hiragino Sans"', '"Hiragino Kaku Gothic ProN"', '"Zen Kaku Gothic New"', "sans-serif"],
       },
       fontSize: {
         // clamp(min, fluid, max) — type scales with viewport

@@ -130,13 +130,14 @@ class Petal {
     private H: () => number,
     private sakura: SpritePool,
     private wisteria: SpritePool,
+    private sakuraRatio: number,
     initial: boolean,
   ) {
     this.reset(initial);
   }
 
   reset(initial: boolean) {
-    this.kind = Math.random() < CONFIG.sakuraRatio ? "sakura" : "wisteria";
+    this.kind = Math.random() < this.sakuraRatio ? "sakura" : "wisteria";
     this.x = Math.random() * this.W();
     this.y = initial ? Math.random() * this.H() : -30 - Math.random() * 200;
 
@@ -237,10 +238,29 @@ export default function PetalCanvas() {
         ? CONFIG.petalCountMobile
         : CONFIG.petalCountDesktop;
 
+    // Bimodal petal mix — bias the sakura:wisteria split toward the colorway
+    // that won this load's palette roll (.palette-sakura on <html>), giving the
+    // dominant hue a random share so the exact ratio varies load to load.
+    const dominant =
+      CONFIG.dominantPetalMin +
+      Math.random() * (CONFIG.dominantPetalMax - CONFIG.dominantPetalMin);
+    const sakuraRatio = document.documentElement.classList.contains(
+      "palette-sakura",
+    )
+      ? dominant
+      : 1 - dominant;
+
     const petals: Petal[] = [];
     for (let i = 0; i < count; i++) {
       petals.push(
-        new Petal(() => W, () => H, sakuraSprites, wisteriaSprites, true),
+        new Petal(
+          () => W,
+          () => H,
+          sakuraSprites,
+          wisteriaSprites,
+          sakuraRatio,
+          true,
+        ),
       );
     }
 
