@@ -29,8 +29,12 @@ export default function PaperTexture() {
   const [seeds, setSeeds] = useState<WashiSeeds>(DEFAULT_SEEDS);
 
   useEffect(() => {
-    const salt = Math.floor(Math.random() * 0xffffffff);
-    setSeeds(seedsFromSalt(salt));
+    const frame = window.requestAnimationFrame(() => {
+      const salt = Math.floor(Math.random() * 0xffffffff);
+      setSeeds(seedsFromSalt(salt));
+    });
+
+    return () => window.cancelAnimationFrame(frame);
   }, []);
 
   const c = WASHI_CONFIG;

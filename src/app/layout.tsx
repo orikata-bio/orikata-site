@@ -10,10 +10,10 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://orikata.ai"),
   // Tab title + link previews carry the legal entity name "Orikata Bio".
   title: "Orikata Bio",
-  description: "Orikata — the way of folding.",
+  description: "Orikata Bio by Megure Labs. The way of folding.",
   openGraph: {
     title: "Orikata Bio",
-    description: "The way of folding.",
+    description: "Orikata Bio by Megure Labs. The way of folding.",
     type: "website",
     url: "https://orikata.ai",
   },
