@@ -28,10 +28,13 @@ The development server is available at `http://localhost:3000`.
 npm run typecheck
 npm run lint
 npm run build
+npm run check
 npm audit --omit=dev
 ```
 
 `npm run build` writes a static site to `out/`. The production site does not require a Next.js server.
+
+`npm run check` also renders deterministic desktop, mobile, small-mobile, and landscape previews. It fails on horizontal overflow, escaped or clipped lockup content, footer collisions, and insufficient mobile card inset.
 
 ## Deployment
 

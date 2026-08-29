@@ -8,6 +8,8 @@
     "start": "next start",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
+    "visual:check": "npm run build && node visual-check.mjs",
+    "check": "npm run typecheck && npm run lint && npm run visual:check",
     "sprites": "tsx dev/render-sprites.ts",
     "record": "tsx dev/record-page.ts",
     "deploy": "npm run build && npx wrangler deploy"
